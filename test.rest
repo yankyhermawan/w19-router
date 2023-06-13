@@ -1,0 +1,23 @@
+### REGISTER
+POST http://localhost:4000/user/register
+Content-Type: application/json
+
+{
+    "username": "budi3",
+    "password": "abc"
+}
+
+### LOGIN
+POST http://localhost:4000/user/login
+Content-Type: application/json
+
+{
+    "username": "budi",
+    "password": "abc"
+}
+
+### GET
+GET http://localhost:4000/categories
+
+### GET
+GET http://localhost:4000/categories/1
