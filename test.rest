@@ -21,3 +21,27 @@ GET http://localhost:4000/categories
 
 ### GET
 GET http://localhost:4000/categories/1
+
+###POST
+POST http://localhost:4000/categories
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJidWRpIiwiaWF0IjoxNjg2OTI0Mjc5LCJleHAiOjE2ODcwMTA2Nzl9.SxdyE_1RRiSaE43VsR5GTCSm3RuQC96kRpSM9lhtUOU
+
+{
+    "name": "baju",
+    "description": "abcd",
+    "isActive": true,
+    "usersID": 1
+}
+
+### PATCH
+PATCH http://localhost:4000/categories/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJidWRpIiwiaWF0IjoxNjg2OTI0Mjc5LCJleHAiOjE2ODcwMTA2Nzl9.SxdyE_1RRiSaE43VsR5GTCSm3RuQC96kRpSM9lhtUOU
+
+{
+    "name": "buahab",
+    "description": "abcde",
+    "isActive": false,
+    "usersID": 1
+}
