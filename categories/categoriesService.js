@@ -7,12 +7,12 @@ export class CategoriesService {
 		this.categoriesException = new CategoriesException();
 	}
 	async findAll() {
-		const response = this.prismaService.categories.findMany();
+		const response = await this.prismaService.categories.findMany();
 		return { status: 200, response: { message: response } };
 	}
 
 	async findOne(id) {
-		const response = this.prismaService.categories.findUnique({
+		const response = await this.prismaService.categories.findUnique({
 			where: {
 				id: id,
 			},
@@ -26,17 +26,16 @@ export class CategoriesService {
 		};
 	}
 
-	async createCategories(data) {
-		const response = this.prismaService.categories.create({
-			data: {
-				data,
-			},
+	async createCategories(data, usersID) {
+		data.usersID = usersID;
+		const response = await this.prismaService.categories.create({
+			data: data,
 		});
 		return { status: 200, response: { message: response } };
 	}
 
 	async patchCategories(id, data) {
-		const response = this.prismaService.categories.findUnique({
+		const response = await this.prismaService.categories.findUnique({
 			where: {
 				id: id,
 			},
@@ -54,7 +53,7 @@ export class CategoriesService {
 			usersID: response.usersID,
 			isActive: data.isActive || response.isActive,
 		};
-		const newResponse = this.prismaService.categories.update({
+		const newResponse = await this.prismaService.categories.update({
 			where: {
 				id: id,
 			},

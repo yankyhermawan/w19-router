@@ -51,9 +51,7 @@ export class UsersService {
 		isExist.password = undefined;
 		return {
 			status: 200,
-			response: {
-				acess_token: jwt.sign(isExist, jwt_key, { expiresIn: "24h" }),
-			},
+			response: jwt.sign(isExist, jwt_key, { expiresIn: "24h" }),
 		};
 	}
 }
